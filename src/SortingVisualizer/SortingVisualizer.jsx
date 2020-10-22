@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import './SortingVisualizer.css'
 
 export default class SortingVisualizer extends React.Component {
@@ -22,7 +22,21 @@ export default class SortingVisualizer extends React.Component {
         this.setState({array});
     }
 
-}
+    render() {
+        const {array} = this.state;
+    
+        return (
+          <>
+            {array.map((value, idx) => (
+              <div
+                className="array-bar" key={idx}>
+                    {value}
+                </div>
+            ))}
+          </>
+        );
+      }
+    }
 
 function randomIntFromInterval(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
